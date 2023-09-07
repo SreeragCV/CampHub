@@ -35,7 +35,7 @@ module.exports.showCampground = async(req, res) => {
 }
 
 
-module.exports.renderEditform = async (req, res) => {
+module.exports.renderEditForm = async (req, res) => {
     const campground = await Campground.findById(req.params.id);
     if(!campground){
         req.flash('error', 'Sorry! Cannot find the Campground!');
@@ -45,7 +45,7 @@ module.exports.renderEditform = async (req, res) => {
 }
 
 
-async (req, res) => {
+module.exports.editCampground = async (req, res) => {
     const { id } = req.params;
     const campground = await Campground.findByIdAndUpdate(id, { ...req.body.campground });
     req.flash('success', 'Successfully edited the Campground!');
