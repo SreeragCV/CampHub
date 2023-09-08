@@ -12,8 +12,10 @@ cloudinary.config({
 
   const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
+    params: {
     folder: 'CampHub',
     allowedFormats: ['jpeg', 'png', 'jpg']
+    }
   });
 
   module.exports = {
