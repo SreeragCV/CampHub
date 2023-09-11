@@ -6,8 +6,9 @@ const Joi = require('joi')
         price: Joi.number().min(0).required(),
         location: Joi.string().required(),
         //images: Joi.string().required(),
-        description: Joi.string().required()
-    }).required()
+        description: Joi.string().required(),
+    }).required(),
+        deleteImages: Joi.array()
 });
 
 module.exports.reviewSchema = Joi.object({
