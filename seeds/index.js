@@ -24,6 +24,10 @@ const seedDB = async() => {
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             description: "The camping welcomes you with there 90 pitches including 13 accommodation on a terrain of more than 3 hectares of land and terraces. Caravans and motorhomes are welcome and will have a place on the lower part of the campsite, the upper part is not being accessible to campers and large vehicles. All the spots have a 10 A electrical hook-up (for some of you, make sure having an extension cord).", 
             price,
+            geometry: { 
+                type: 'Point', 
+                coordinates: [ -113.133115, 47.020078 ] 
+            },
             images: [
                 {
                   url: 'https://res.cloudinary.com/dywedcwsv/image/upload/v1694246552/CampHub/zjh6fawgdu0nesjux3l0.jpg',
