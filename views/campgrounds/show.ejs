@@ -5,13 +5,13 @@
 
 
 <div class="row">
-    <div class="col-6">
+    <div class="col-5 offset-1">
 
       <div id="campgroundCarousel" class="carousel slide">
         <div class="carousel-inner">
           <% campground.images.forEach((img, i) => { %>
           <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
-            <img src="<%= img.url %>" class="d-block w-100 image" alt="...">
+            <img src="<%= img.url %>" class="d-block w-100 image" height="300" alt="...">
           </div>
           <% }) %>
         </div>
@@ -28,11 +28,9 @@
       </div>
 
         <div class="card mb-3">
-         
-            <img src="" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title"><%= campground.title %></h5>
-              <p class="card-text"><%= campground.description  %></p>
+              <p class="card-text" style="line-height: 20px;"><%= campground.description  %></p>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item text-muted"><%= campground.location %></li>
@@ -47,16 +45,15 @@
                 <% } %>
             </form>
             </div>
-            <div class="card-footer text-muted">
-                2 days ago
-            </div>
           </div>
         </div>
-<div class="col-6">
-        <div id='map' style='width: 400px; height: 300px;'></div>
 
+        <div class="col-5">
+        <div id='map' style='width: 100%; height: 300px;'></div>
+
+        <div class="mt-4"></div>
         <% if(currentUser) { %>
-          <h2>Leave a Review</h2>
+          <h3>Leave a Review</h3>
             <form action="/campgrounds/<%= campground._id %>/reviews" method="post" novalidate class="mb-3 validated-form">
               <div class="mb-3">
               <fieldset class="starability-basic">
@@ -101,15 +98,8 @@
               </div>
               </div>
             <% } %>
-
-
-</div>
-
-        
-        <div class="col-6">
-          
-      </div>
-</div>
+          </div>
+          </div>
 
 <script>
   const mapToken = '<%- process.env.MAPBOX_TOKEN %>';
