@@ -20,9 +20,10 @@ const userRoutes = require('./routes/users');
 const passport = require('passport')
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
-const { storage } = require('./cloudinary')
-const multer  = require('multer')
-const upload = multer({ storage })
+const { storage } = require('./cloudinary');
+const multer  = require('multer');
+const upload = multer({ storage });
+const mongoSanitize = require('express-mongo-sanitize');
 
 mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
 
@@ -36,6 +37,8 @@ app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(mongoSanitize());
 
 const sessionConfig = {
     secret : 'thismustbeagoodsecret',

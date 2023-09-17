@@ -22,7 +22,7 @@ const seedDB = async() => {
             author : '64f07973767d6d211a59b3c6',
             title: `${sample(descriptors)} ${sample(places)}`,
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
-            description: "The camping welcomes you with there 90 pitches including 13 accommodation on a terrain of more than 3 hectares of land and terraces. Caravans and motorhomes are welcome and will have a place on the lower part of the campsite, the upper part is not being accessible to campers and large vehicles. All the spots have a 10 A electrical hook-up (for some of you, make sure having an extension cord).", 
+            description: "The camping welcomes you with there 90 pitches including 13 accommodation on a terrain of more than 3 hectares of land and terraces. Caravans and motorhomes are welcome and will have a place on the lower part of the campsite.", 
             price,
             geometry: { 
                 type: 'Point', 
