@@ -7,11 +7,7 @@ const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const path = require('path');
-const Campground = require('./models/campground');
 const ExpressError = require('./utils/ExpressError')
-const catchAsync = require('./utils/catchAsync');
-const Review = require('./models/review')
-const { campgroundSchema, reviewSchema } = require('./schema.js');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const campgroundRoutes = require('./routes/campgrounds');
@@ -20,10 +16,8 @@ const userRoutes = require('./routes/users');
 const passport = require('passport')
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
-const { storage } = require('./cloudinary');
-const multer  = require('multer');
-const upload = multer({ storage });
 const mongoSanitize = require('express-mongo-sanitize');
+
 
 mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
 
