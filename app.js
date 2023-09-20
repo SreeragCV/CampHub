@@ -1,5 +1,5 @@
 if(process.env.NODE_ENV !== "production") {
-    require('dotenv').config();
+   require('dotenv').config();
 }
 const express = require('express');
 const app = express();
@@ -17,7 +17,7 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
-
+const helmet = require('helmet');
 
 mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
 
@@ -40,13 +40,16 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie : {
         httpOnly : true,
+        //secure: true,
         expires : Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge : 1000 * 60 * 60 * 24 * 7
     }
 }
 
+
 app.use(session(sessionConfig));
 app.use(flash());
+app.use(helmet({contentSecurityPolicy: false}));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -66,15 +69,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 
-app.get('/', (req, res) => {
-    res.render('home');
-})
-
-
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 
+app.get('/', (req, res) => {
+    res.render('home');
+})
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page not found', 404));
