@@ -19,12 +19,11 @@ const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
 const MongoStore = require('connect-mongo');
-const dbUrl = process.env.DB_URL;
-const localUrl = 'mongodb://127.0.0.1:27017/yelp-camp'
+dbURL = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
 
 //mongodb://127.0.0.1:27017/yelp-camp
 
-mongoose.connect(localUrl);
+mongoose.connect(dbURL);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection Error:"));
@@ -40,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize());
 
 const store = MongoStore.create({
-    mongoUrl: localUrl,
+    mongoUrl: dbURL,
     touchAfter: 24 * 60 * 60,
     crypto: {
         secret: 'thismustbeagoodsecret'
