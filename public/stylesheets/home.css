@@ -39,14 +39,15 @@ h1, h3{
 
 .btn{
     color: #011627;
-    background-color: #a0c4ff;
+    background-color: #9bf6ff;
+    border-radius: 25px;
     text-shadow: none;
+    transition: 300ms;
 }
 
 .btn:hover{
-    color: white;
-    background-color: black;
+    background-color: #a0c4ff;
     transition: 500ms;
-    transform: scale(1.04);
+    border-radius: 50%;
     text-shadow: none;
 }
