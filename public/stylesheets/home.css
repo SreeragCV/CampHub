@@ -39,10 +39,12 @@ h1, h3{
 
 .btn{
     color: #011627;
+    font-size: large;
     background-color: #9bf6ff;
     border-radius: 25px;
     text-shadow: none;
     transition: 300ms;
+    margin:auto;
 }
 
 .btn:hover{
@@ -50,4 +52,8 @@ h1, h3{
     transition: 500ms;
     border-radius: 50%;
     text-shadow: none;
+}
+
+@media(max-width: 570px){
+
 }
