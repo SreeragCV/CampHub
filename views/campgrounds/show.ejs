@@ -77,12 +77,12 @@
                   looks good!
                 </div>
               </div>
-              <button class="btn btn-success">Submit</button>
+              <button type="submit" onclick="this.disabled=true;this.value='Submitting...'; this.form.submit();" class="btn btn-success">Submit</button>
             </form>
             <% } %>
   
           
-            <% for(let review of campground.reviews) { %>s
+            <% for(let review of campground.reviews) { %>
   
               <div class="card mb-3">
                 <div class="card-body">
