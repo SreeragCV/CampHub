@@ -1,6 +1,9 @@
 const User = require('../models/user');
 
 module.exports.renderRegister = (req, res) => {
+    if(req.user){
+        res.redirect('/campgrounds')
+    }
     res.render('users/register');
 }
 
@@ -22,6 +25,9 @@ module.exports.register = async (req, res) => {
 }
 
 module.exports.renderLogin = (req, res) => {
+    if(req.user){
+        res.redirect('/campgrounds');
+    }
     res.render('users/login');
 }
 
