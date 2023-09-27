@@ -12,12 +12,14 @@
        </div>
        <div class="navbar-nav ml-auto">
         <% if(!currentUser) { %>
+          <span style="display: flex;">
         <a href="/login" class="nav-item nav-link">Login</a>
-        <h3 class="nav-item" style="color: #adb5bd;">|</h3>
+        <h3 class="nav-item" style="color: #adb5bd; font-weight: 100;">/</h3>
         <a href="/register" class="nav-item nav-link">Register</a>
         <% } else { %>
         <a href="/logout" class="nav-item nav-link">Logout</a>
         <% } %>
+        </span>
        </div>
       </div>
     </div>
