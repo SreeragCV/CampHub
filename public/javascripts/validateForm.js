@@ -13,7 +13,7 @@
           form.classList.add('was-validated');
           if(form.checkValidity() === true){
             btn.disabled = true;
-            btn.innerText = "loading..";
+            btn.innerText = "loading...";
           } 
         }, false);
       });

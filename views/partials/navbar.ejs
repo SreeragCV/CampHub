@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">CampHub</a>
+    <a class="navbar-brand" href="/campgrounds">CampHub</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,6 +13,7 @@
        <div class="navbar-nav ml-auto">
         <% if(!currentUser) { %>
         <a href="/login" class="nav-item nav-link">Login</a>
+        <h3 class="nav-item" style="color: #adb5bd;">|</h3>
         <a href="/register" class="nav-item nav-link">Register</a>
         <% } else { %>
         <a href="/logout" class="nav-item nav-link">Logout</a>
